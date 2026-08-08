@@ -24,12 +24,13 @@ python-web Pod -> PersistentVolumeClaim python-web-data
 - `kubectl`
 - `curl`, `openssl`, and a POSIX shell
 
-The deployment script downloads/uses Kind at `tools/kind` and writes a project-local `kubeconfig`, both excluded from source control. It never changes the default user kubeconfig.
+The bootstrap script downloads Kind to `tools/kind`; the deployment script writes a project-local `kubeconfig`. Both are excluded from source control. The workflow never changes the default user kubeconfig.
 
 ## Build, load, and deploy
 
 ```sh
-chmod +x scripts/deploy.sh scripts/cleanup.sh
+chmod +x scripts/bootstrap-kind.sh scripts/deploy.sh scripts/cleanup.sh
+./scripts/bootstrap-kind.sh
 ./scripts/deploy.sh
 ```
 

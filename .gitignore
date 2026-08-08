@@ -1,5 +1,6 @@
 kubeconfig
-tools/kind
+tools/
+CSE644_Kubernetes_Assignment_ZIZE_WAN.zip
 .DS_Store
 .env
 *.pem
