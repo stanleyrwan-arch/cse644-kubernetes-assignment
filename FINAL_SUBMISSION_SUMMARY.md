@@ -1,7 +1,8 @@
 # Final Submission Summary - CSE644 Assignment 02
 
-- ZIP path: `CSE644_Kubernetes_Assignment_ZIZE_WAN.zip` (created during final packaging)
-- GitHub repository: recorded after publication
+- ZIP path: `/Users/wan/Downloads/CSE644_Docker_Assignment_ZIZE_WAN/kubernetes-assignment/CSE644_Kubernetes_Assignment_ZIZE_WAN.zip`
+- GitHub repository: <https://github.com/stanleyrwan-arch/cse644-kubernetes-assignment>
+- Validated project-content commit: `d3d7252c6fdc4a13178feb4fea7c36d096722861`
 - Environment: Kind on Docker Desktop, using a project-local kubeconfig excluded from source control
 
 ## Submit to the course portal

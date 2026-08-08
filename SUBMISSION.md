@@ -4,7 +4,7 @@
 - Local Kubernetes environment: **Kind v0.33.0-alpha on Docker Desktop, macOS/arm64**
 - Cluster name: `cse644-k8s`
 - Local image-loading method: `kind load docker-image --name cse644-k8s ...`
-- GitHub repository: **To be created during final publication**
+- GitHub repository: <https://github.com/stanleyrwan-arch/cse644-kubernetes-assignment>
 
 ## Required demonstration checklist
 

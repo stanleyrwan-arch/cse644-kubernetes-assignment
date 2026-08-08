@@ -6,6 +6,7 @@
 - Kubernetes: Kind `cse644-k8s`, Kubernetes v1.36.1
 - Kubernetes access: project-local `kubeconfig` only; it is excluded from Git and the package
 - Image loading: `kind load docker-image` for `cse644-custom-nginx-k8s:v1` and `cse644-python-web-k8s:v1`
+- GitHub repository: <https://github.com/stanleyrwan-arch/cse644-kubernetes-assignment>
 
 ## Validated workloads and access
 
