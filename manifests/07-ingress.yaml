@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cse644-ingress
+  namespace: cse644
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nginx.cse644.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: haproxy-edge
+                port:
+                  number: 80

@@ -1,0 +1,47 @@
+Assignment 02 final resource and manifest validation
+Kubernetes control plane is running at https://127.0.0.1:55751
+CoreDNS is running at https://127.0.0.1:55751/api/v1/namespaces/kube-system/services/kube-dns:dns/proxy
+
+To further debug and diagnose cluster problems, use 'kubectl cluster-info dump'.
+NAME                       STATUS   ROLES           AGE    VERSION
+cse644-k8s-control-plane   Ready    control-plane   7m9s   v1.36.1
+NAME                                READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                       SELECTOR
+deployment.apps/custom-nginx        2/2     2            2           7m1s   nginx        cse644-custom-nginx-k8s:v1   app=custom-nginx
+deployment.apps/haproxy-edge        1/1     1            1           7m     haproxy      haproxy:3.1-alpine           app=haproxy-edge
+deployment.apps/public-image-demo   1/1     1            1           7m1s   nginx        nginx:1.27-alpine            app=public-image-demo
+deployment.apps/python-web          1/1     1            1           7m1s   python-web   cse644-python-web-k8s:v1     app=python-web
+
+NAME                                     READY   STATUS    RESTARTS   AGE    IP            NODE                       NOMINATED NODE   READINESS GATES
+pod/custom-nginx-69b8fccd-w2nb4          1/1     Running   0          7m     10.244.0.5    cse644-k8s-control-plane   <none>           <none>
+pod/custom-nginx-69b8fccd-zkxx5          1/1     Running   0          7m     10.244.0.6    cse644-k8s-control-plane   <none>           <none>
+pod/haproxy-edge-ccdfb4c47-k4h7p         1/1     Running   0          7m     10.244.0.2    cse644-k8s-control-plane   <none>           <none>
+pod/public-image-demo-799f65d9f8-p6cv4   1/1     Running   0          7m     10.244.0.4    cse644-k8s-control-plane   <none>           <none>
+pod/python-web-7865c47896-k5b8l          1/1     Running   0          2m7s   10.244.0.18   cse644-k8s-control-plane   <none>           <none>
+
+NAME                              TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)          AGE    SELECTOR
+service/custom-nginx              ClusterIP      10.96.101.60    <none>        80/TCP           7m1s   app=custom-nginx
+service/haproxy-edge              ClusterIP      10.96.225.255   <none>        80/TCP           7m     app=haproxy-edge
+service/haproxy-nodeport          NodePort       10.96.100.231   <none>        80:30080/TCP     7m     app=haproxy-edge
+service/python-web                ClusterIP      10.96.53.249    <none>        8888/TCP         7m1s   app=python-web
+service/python-web-loadbalancer   LoadBalancer   10.96.159.228   <pending>     8888:30088/TCP   7m1s   app=python-web
+
+NAME                                    STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE    VOLUMEMODE
+persistentvolumeclaim/python-web-data   Bound    pvc-64f4f714-9972-4ed5-b255-992a21a5cd97   64Mi       RWO            standard       <unset>                 7m1s   Filesystem
+
+NAME                                       CLASS   HOSTS                ADDRESS     PORTS   AGE
+ingress.networking.k8s.io/cse644-ingress   nginx   nginx.cse644.local   localhost   80      4m58s
+namespace/cse644 unchanged (server dry run)
+deployment.apps/public-image-demo unchanged (server dry run)
+configmap/python-web-config unchanged (server dry run)
+persistentvolumeclaim/python-web-data unchanged (server dry run)
+deployment.apps/custom-nginx unchanged (server dry run)
+deployment.apps/python-web unchanged (server dry run)
+service/custom-nginx unchanged (server dry run)
+service/python-web unchanged (server dry run)
+service/python-web-loadbalancer unchanged (server dry run)
+configmap/haproxy-config unchanged (server dry run)
+deployment.apps/haproxy-edge unchanged (server dry run)
+service/haproxy-edge unchanged (server dry run)
+service/haproxy-nodeport unchanged (server dry run)
+ingress.networking.k8s.io/cse644-ingress unchanged (server dry run)
+service/ingress-nginx-controller unchanged (server dry run)

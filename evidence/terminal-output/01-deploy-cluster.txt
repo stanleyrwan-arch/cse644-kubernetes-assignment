@@ -1,0 +1,134 @@
+Creating cluster "cse644-k8s" ...
+ • Ensuring node image (kindest/node:v1.36.1) 🖼  ...
+ ✓ Ensuring node image (kindest/node:v1.36.1) 🖼
+ • Preparing nodes 📦   ...
+ ✓ Preparing nodes 📦
+ • Writing configuration 📜  ...
+ ✓ Writing configuration 📜
+ • Starting control-plane 🕹️  ...
+ ✓ Starting control-plane 🕹️
+ • Installing CNI 🔌  ...
+ ✓ Installing CNI 🔌
+ • Installing StorageClass 💾  ...
+ ✓ Installing StorageClass 💾
+Set kubectl context to "kind-cse644-k8s"
+You can now use your cluster with:
+
+kubectl cluster-info --context kind-cse644-k8s --kubeconfig /Users/wan/Downloads/CSE644_Docker_Assignment_ZIZE_WAN/kubernetes-assignment/kubeconfig
+
+Not sure what to do next? 😅  Check out https://kind.sigs.k8s.io/docs/user/quick-start/
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 115B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/nginx:alpine
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 32B done
+#4 DONE 0.0s
+
+#5 [1/2] FROM docker.io/library/nginx:alpine@sha256:4a73073bd557c65b759505da037898b61f1be6cbcc3c2c3aeac22d2a470c1752
+#5 resolve docker.io/library/nginx:alpine@sha256:4a73073bd557c65b759505da037898b61f1be6cbcc3c2c3aeac22d2a470c1752 0.0s done
+#5 DONE 0.0s
+
+#6 [2/2] COPY index.html /usr/share/nginx/html/index.html
+#6 CACHED
+
+#7 exporting to image
+#7 exporting layers done
+#7 exporting manifest sha256:f8051862c5092b7ad4627955094f27b2d96cfa6c4d6f944200d37aac4996c2dc done
+#7 exporting config sha256:6c05e39738d810e6554b4e43576fca0ffdd4194f916917250ce58fc0fcb29c0b done
+#7 exporting attestation manifest sha256:82e6836846a54288b2f6f2b988bbe593d2869b3a96ec67a1470d52746395c1f3 0.0s done
+#7 exporting manifest list sha256:8453801da3f164002dcdea70094318daa495445c366d3d4eefac68383ba39fc6 done
+#7 naming to docker.io/library/cse644-custom-nginx-k8s:v1 done
+#7 unpacking to docker.io/library/cse644-custom-nginx-k8s:v1 done
+#7 DONE 0.1s
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 303B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.12-slim
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.12-slim@sha256:090ba77e2958f6af52a5341f788b50b032dd4ca28377d2893dcf1ecbdfdfe203
+#4 resolve docker.io/library/python:3.12-slim@sha256:090ba77e2958f6af52a5341f788b50b032dd4ca28377d2893dcf1ecbdfdfe203 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 63B done
+#5 DONE 0.0s
+
+#6 [5/6] COPY app.py ./
+#6 CACHED
+
+#7 [3/6] COPY requirements.txt ./
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt     && useradd --create-home --uid 10001 appuser
+#8 CACHED
+
+#9 [2/6] WORKDIR /app
+#9 CACHED
+
+#10 [6/6] RUN chown -R appuser:appuser /app
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:505bb5e2e555e6f1d7d2bae19d1b6269ccf890a50101897a27d223f314ecda72 done
+#11 exporting config sha256:090d3467b8ed73518943f147f3e1681e90b86680f618168a1dd950fbe6b8c66f done
+#11 exporting attestation manifest sha256:4819930dbf9f48542c2449e99c18af74f571aa4ba6d77e6d784e605d3e6b4001 done
+#11 exporting manifest list sha256:a7789773f2b83da83fc182ca58f3d3cae2675f9d32405805ff7ac81497bc91af done
+#11 naming to docker.io/library/cse644-python-web-k8s:v1 done
+#11 unpacking to docker.io/library/cse644-python-web-k8s:v1 done
+#11 DONE 0.0s
+Image: "cse644-custom-nginx-k8s:v1" with ID "sha256:8453801da3f164002dcdea70094318daa495445c366d3d4eefac68383ba39fc6" not yet present on node "cse644-k8s-control-plane", loading...
+Image: "cse644-python-web-k8s:v1" with ID "sha256:a7789773f2b83da83fc182ca58f3d3cae2675f9d32405805ff7ac81497bc91af" not yet present on node "cse644-k8s-control-plane", loading...
+namespace/cse644 created
+secret/app-runtime-secret created
+deployment.apps/public-image-demo created
+configmap/python-web-config created
+persistentvolumeclaim/python-web-data created
+deployment.apps/custom-nginx created
+deployment.apps/python-web created
+service/custom-nginx created
+service/python-web created
+service/python-web-loadbalancer created
+configmap/haproxy-config created
+deployment.apps/haproxy-edge created
+service/haproxy-edge created
+service/haproxy-nodeport created
+namespace/ingress-nginx created
+serviceaccount/ingress-nginx created
+serviceaccount/ingress-nginx-admission created
+role.rbac.authorization.k8s.io/ingress-nginx created
+role.rbac.authorization.k8s.io/ingress-nginx-admission created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx created
+clusterrole.rbac.authorization.k8s.io/ingress-nginx-admission created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx created
+rolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx created
+clusterrolebinding.rbac.authorization.k8s.io/ingress-nginx-admission created
+configmap/ingress-nginx-controller created
+service/ingress-nginx-controller created
+service/ingress-nginx-controller-admission created
+deployment.apps/ingress-nginx-controller created
+job.batch/ingress-nginx-admission-create created
+job.batch/ingress-nginx-admission-patch created
+ingressclass.networking.k8s.io/nginx created
+validatingwebhookconfiguration.admissionregistration.k8s.io/ingress-nginx-admission created
+service/ingress-nginx-controller configured
+Error from server (InternalError): error when creating "/Users/wan/Downloads/CSE644_Docker_Assignment_ZIZE_WAN/kubernetes-assignment/manifests/07-ingress.yaml": Internal error occurred: failed calling webhook "validate.nginx.ingress.kubernetes.io": failed to call webhook: Post "https://ingress-nginx-controller-admission.ingress-nginx.svc:443/networking/v1/ingresses?timeout=10s": dial tcp 10.96.111.210:443: connect: connection refused

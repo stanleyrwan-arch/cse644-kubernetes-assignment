@@ -1,0 +1,10 @@
+kubeconfig
+tools/kind
+.DS_Store
+.env
+*.pem
+*.key
+__pycache__/
+.venv/
+venv/
+env/

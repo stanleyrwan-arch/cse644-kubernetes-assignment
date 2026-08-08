@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: public-image-demo
+  namespace: cse644
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: public-image-demo
+  template:
+    metadata:
+      labels:
+        app: public-image-demo
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27-alpine
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
